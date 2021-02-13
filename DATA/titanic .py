@@ -60,8 +60,8 @@ y_predicted1 = lr.predict(X_test)
 X_test["Survived"] = y_predicted1.reshape(-1,1)
 X_test.head()
 
-## %%
-
+# %%
+X_final= X_test.drop(["Sex"], axis=1)
 #df2.to_csv("results.csv")
-X_test.to_csv("gender.csv")
+X_test.to_csv("gender1.csv")
 # %%
