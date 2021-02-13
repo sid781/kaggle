@@ -57,4 +57,6 @@ lr.score(X_train, y_train)
 y_predicted1 = lr.predict(X_test)
 df2["Survived"] = y_predicted1.reshape(-1,1)
 df2.head()
+
+df2.to_csv("results.csv")
 # %%
