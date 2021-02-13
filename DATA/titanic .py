@@ -41,9 +41,9 @@ cor = df1[df1.columns].corr()
 sns.heatmap(cor)
 
 # %%
-X_train = df1.drop(["Survived"], axis=1)
+X_train = df1.drop(["Survived", 'Pclass',"Age", "Fare"], axis=1)
 y_train = df1["Survived"]
-X_test = df2
+X_test = df2.drop(['Pclass',"Age", "Fare"],axis=1)
 X_train.head()
 # %%
 from sklearn.linear_model import LogisticRegression
@@ -55,8 +55,13 @@ lr.fit(X_train, y_train)
 lr.score(X_train, y_train)
 # %%
 y_predicted1 = lr.predict(X_test)
-df2["Survived"] = y_predicted1.reshape(-1,1)
-df2.head()
 
-df2.to_csv("results.csv")
+# %%
+X_test["Survived"] = y_predicted1.reshape(-1,1)
+X_test.head()
+
+## %%
+
+#df2.to_csv("results.csv")
+X_test.to_csv("gender.csv")
 # %%
