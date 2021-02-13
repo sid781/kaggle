@@ -63,5 +63,5 @@ X_test.head()
 # %%
 X_final= X_test.drop(["Sex"], axis=1)
 #df2.to_csv("results.csv")
-X_test.to_csv("gender1.csv")
+X_final.to_csv("gender1.csv")
 # %%
