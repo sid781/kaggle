@@ -1,6 +1,5 @@
 # %%
 import pandas as pd
-import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
@@ -17,6 +16,7 @@ df1["srp"]= df1["Safeway"]-df1["Risk Free"]
 df1
 # %%
 y_cols= ["arp", "irp", "srp"]
+df1[y_cols]
 # %%
 X=df1["mrp"]
 X.head()
@@ -30,6 +30,3 @@ for i, premium in enumerate(y_cols):
     sns.regplot(x=X, y=y, ax=ax[i])
     print(result.summary())
     print("\n\n\n")
-# %%
-
-# %%
